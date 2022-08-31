@@ -7,6 +7,7 @@ const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
 
+
 const path = require('path');
 const fs = require('fs');
 
@@ -60,7 +61,7 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
 
-autoUpdater.autoDownload = false;
+autoUpdater.autoDownload = true;
 
 ipcMain.on('update-app', () => {
     autoUpdater.checkForUpdates();
@@ -70,6 +71,11 @@ autoUpdater.on('update-available', () => {
     const updateWindow = UpdateWindow.getWindow();
     if (updateWindow) updateWindow.webContents.send('updateAvailable');
 });
+
+ipcMain.on('start-update', () => {
+    autoUpdater.downloadUpdate();
+})
+
 
 autoUpdater.on('update-not-available', () => {
     const updateWindow = UpdateWindow.getWindow();

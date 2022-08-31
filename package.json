@@ -1,11 +1,11 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
-    "version": "1.0.2",
-    "description": "Launcher Mincraft custom (crack, premium)",
+    "name": "GirlsWorld-Launcher",
+    "preductname": "Girls World Launcher",
+    "version": "1.0.11",
+    "description": "Launcher Mincraft",
     "main": "src/app.js",
-    "author": "Luuxis",
-    "url": "http://launcher.selvania.fr",
+    "author": "EfectoDME",
+    "url": "http://girlsworldlauncher.ddns.net/launchergw/",
     "engines": {
         "node": "16.x.x"
     },
@@ -21,7 +21,8 @@
     "dependencies": {
         "electron-updater": "^5.0.1",
         "minecraft-java-core": "^2.1.1",
-        "node-fetch": "^2.6.7"
+        "node-fetch": "^2.6.7",
+        "update-electron-app": "^2.0.1"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
@@ -31,6 +32,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/luuxis/Selvania-Launcher.git"
+        "url": "git+https://github.com/modinodr/GW-Launcher.git"
     }
 }
