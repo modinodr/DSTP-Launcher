@@ -1,11 +1,11 @@
 {
-    "name": "GirlsWorld-Launcher",
-    "preductname": "Girls World Launcher",
-    "version": "1.0.11",
+    "name": "Distopia-Launcher",
+    "preductname": "Distorpia SMP Launcher",
+    "version": "1.0.3",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
-    "url": "http://girlsworldlauncher.ddns.net/launchergw/",
+    "url": "http://girlsworldlauncher.ddns.net/launcherdis/",
     "engines": {
         "node": "16.x.x"
     },
@@ -32,6 +32,6 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/modinodr/GW-Launcher.git"
+        "url": "git+https://github.com/modinodr/DSTP-Launcher.git"
     }
 }

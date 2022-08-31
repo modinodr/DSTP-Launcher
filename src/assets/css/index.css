@@ -17,11 +17,11 @@ img {
 
 .splash {
     position: absolute;
-    top: 180px;
+    top: 40px;
     left: 50%;
     transform: translate(-50%);
-    width: 140px;
-    height: 140px;
+    width: 250px;
+    height: 250px;
     transition: opacity .3s, top 1.5s;
     opacity: 0;
 }
@@ -31,7 +31,7 @@ img {
 }
 
 .splash.translate {
-    top: 129px;
+    top: 90px;
 }
 
 .splash-message {

@@ -27,11 +27,11 @@
 }
 
 .settings-btn {
-    background: #dd74cc;
+    background: #DAB279;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     margin: 15px 0;
-    box-shadow: 0 5px 0 #8b416c;
+    box-shadow: 0 5px 0 #886e49;
     position: absolute;
     top: -8px;
     right: 30px;
@@ -42,7 +42,7 @@
 }
 
 .settings-btn:hover {
-    box-shadow: 0 2px 0 #8b416c;
+    box-shadow: 0 2px 0 #886e49;
     transform: translateY(4px)
 }
 
@@ -65,8 +65,8 @@
     width: 160px;
     height: 50px;
     border: none;
-    background: #dd74cc;
-    box-shadow: 0 5px 0 #8b416c;
+    background: #DAB279;
+    box-shadow: 0 5px 0 #886e49;
     font: normal normal bold 20px/25px Poppins;
     color: #121212;
     
@@ -74,7 +74,7 @@
 
 .play-btn:hover {
   
-    box-shadow: 0 2px 0 #8b416c;
+    box-shadow: 0 2px 0 #886e49;
     transform: translateY(4px)
 }
 
@@ -105,7 +105,7 @@
 }
 
 .progress-bar::-webkit-progress-value {
-    background-color: #fa84c9;
+    background-color: #DAB279;
     border-radius: 10px;
 }
 
@@ -138,7 +138,7 @@
 }
 
 .opacity-1 {
-    opacity: 1;
+    opacity: .6;
 }
 
 .news-header {
@@ -247,7 +247,7 @@
 
 .server-img {
     position: absolute;
-    width: 42px;
+    width: 45px;
     height: 45px;
     top: 15px;
     left: 15px;
