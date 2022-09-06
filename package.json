@@ -1,7 +1,7 @@
 {
     "name": "Distopia-Launcher",
-    "preductname": "Distorpia SMP Launcher",
-    "version": "1.0.3",
+    "preductname": "Distopia SMP Launcher",
+    "version": "1.0.4",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
