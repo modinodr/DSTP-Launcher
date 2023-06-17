@@ -1,11 +1,11 @@
 {
     "name": "Distopia-Launcher",
     "preductname": "Distopia SMP Launcher",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
-    "url": "http://143.47.53.164/",
+    "url": "http://distopiasmp.ddns.net/",
     "engines": {
         "node": "16.x.x"
     },
