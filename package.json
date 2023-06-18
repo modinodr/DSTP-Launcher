@@ -1,17 +1,18 @@
 {
     "name": "Distopia-Launcher",
     "preductname": "Distopia SMP Launcher",
-    "version": "1.0.11",
+    "version": "1.0.10",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
     "url": "http://distopiasmp.ddns.net/",
     "engines": {
-        "node": "16.x.x"
+        "node": "^18.x.x"
     },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
-        "build": "node build.js",
+        "build": "node build.js --build",
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png",
         "dev": "nodemon --exec npm start"
     },
     "license": "CC0",
@@ -20,13 +21,14 @@
     },
     "dependencies": {
         "electron-updater": "^5.0.1",
-        "minecraft-java-core": "^2.1.1",
+        "jimp": "^0.22.8",
+        "minecraft-java-core": "^3.5.0",
         "node-fetch": "^2.6.7",
-        "update-electron-app": "^2.0.1"
+        "png2icons": "^2.0.1"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",
-        "electron": "^19.0.7",
+        "electron": "^20.0.0",
         "electron-builder": "^23.0.3",
         "nodemon": "^2.0.16"
     },

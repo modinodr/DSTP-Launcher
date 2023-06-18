@@ -19,9 +19,6 @@ class Settings {
         this.initTab();
         this.initAccount();
         this.initRam();
-        this.initJavaPath();
-        this.initJavaArgs();
-        this.initResolution();
         this.initLauncherSettings();
     }
 
@@ -90,7 +87,7 @@ class Settings {
 
     async initJavaPath() {
         let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
-        let javaPath = javaDatabase ? javaDatabase : 'Utilizar la versión de java recomendada';
+        let javaPath = javaDatabase ? javaDatabase : 'Use la versión de Java del lanzador';
         document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let path = document.querySelector(".path");
@@ -115,7 +112,7 @@ class Settings {
         });
 
         document.querySelector(".path-button-reset").addEventListener("click", () => {
-            path.value = 'Utilizar la versión de java recomendada';
+            path.value = 'Use la versión de Java del lanzador';
             file.value = '';
             this.database.update({ uuid: "1234", path: false }, 'java-path');
         });

@@ -22,12 +22,11 @@ class Splash {
 
     async startAnimation() {
         let splashes = [
-            
             { "message": "Bienvenid@ a Distopia SMP" }
-        ];
+        ]
         let splash = splashes[Math.floor(Math.random() * splashes.length)];
         this.splashMessage.textContent = splash.message;
-        
+        this.splashAuthor.children[0].textContent = "@" + splash.author;
         await sleep(100);
         document.querySelector("#splash").style.display = "block";
         await sleep(500);
@@ -37,24 +36,20 @@ class Splash {
         this.splashMessage.classList.add("opacity");
         this.splashAuthor.classList.add("opacity");
         this.message.classList.add("opacity");
-        await sleep(2000);
-        this.maintenanceCheck();
-    }
-
-    async maintenanceCheck() {
-        if (dev) return this.startLauncher();
-        config.GetConfig().then(res => {
-            if (res.maintenance) return this.shutdown(res.maintenance_message);
-            else this.checkUpdate();
-        }).catch(e => {
-            console.error(e);
-            return this.shutdown("No se detectó conexión a Internet,<br>inténtelo de nuevo más tarde.");
-        })
+        await sleep(3000);
+        this.checkUpdate();
     }
 
     async checkUpdate() {
+        if (dev) return this.startLauncher();
         this.setStatus(`Buscando actualización...`);
-        ipcRenderer.send('update-app');
+
+        ipcRenderer.invoke('update-app').then(err => {
+            if (err.error) {
+                let error = err.message;
+                this.shutdown(`Error al buscar actualizacion: <br>${error}`);
+            }
+        })
 
         ipcRenderer.on('updateAvailable', () => {
             this.setStatus(`¡Actualización disponible!`);
@@ -67,10 +62,19 @@ class Splash {
         })
 
         ipcRenderer.on('update-not-available', () => {
-            this.startLauncher();
+            this.maintenanceCheck();
         })
     }
 
+    async maintenanceCheck() {
+        config.GetConfig().then(res => {
+            if (res.maintenance) return this.shutdown(res.maintenance_message);
+            this.startLauncher();
+        }).catch(e => {
+            console.error(e);
+            return this.shutdown("No se detectó conexión a Internet,<br>inténtelo de nuevo más tarde.");
+        })
+    }
 
     startLauncher() {
         this.setStatus(`Iniciando el launcher`);
