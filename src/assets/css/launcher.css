@@ -11,10 +11,9 @@ body {
     margin: 0;
     padding: 0;
     user-select: none;
-    background: linear-gradient(#00000066, #00000066), url("../images/background/light.jpg") black no-repeat center center scroll;
+    background: linear-gradient(#00000034, #000000ce), url("../images/background/light.jpg") black no-repeat center center scroll;
     background-size: cover;
-    height: 100vh;
-    overflow: hidden;
+    align-items: center;
 }
 
 img {

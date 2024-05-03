@@ -190,7 +190,7 @@ class Login {
         let loginBtn = document.querySelector(".login-btn")
         let mojangBtn = document.querySelector('.mojang')
 
-        mojangBtn.innerHTML = "Mojang"
+        mojangBtn.innerHTML = "Offline"
 
         mojangBtn.addEventListener("click", () => {
             document.querySelector(".login-card").style.display = "none";
@@ -248,7 +248,7 @@ class Login {
                 user_properties: account_connect.user_properties,
                 meta: {
                     type: account_connect.meta.type,
-                    offline: account_connect.meta.offline
+                    online: account_connect.meta.online
                 }
             }
 

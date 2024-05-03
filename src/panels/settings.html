@@ -1,58 +1,76 @@
 <div class="settings-content">
     <div class="tabs-settings-btn">
+        <button class="ajustestittle">Ajustes</button>
         <button class="tab-btn-css tab-btn active-tab-btn default-tab-btn">Cuenta</button>
-        <button class="tab-btn-css tab-btn">Java</button>
+        <button class="tab-btn-css tab-btn">Memoria RAM</button>
         <button class="tab-btn-css tab-btn">Launcher</button>
+        <div class="guardar"></div>
         <button class="tab-btn-css save-tabs-btn">Guardar</button>
     </div>
 
     <div class="tabs-settings-content active-tab-content">
         <div class="center-align">
-            <button class="add-account">Cuenta</button>
+            <button disabled class="add-account">Cuenta</button>
             <div class="accounts"></div>
         </div>
     </div>
 
     <div class="tabs-settings-content">
         <div class="settings-content-scroll">
-            <div class="title-settings">Parámetros de la RAM.</div>
+            <div class="center-align">
+            <button disabled class="add-account">Memoria RAM</button>
+        </div>
             <div class="java-settings">
                 <div class="information">
-                    Cantidad de memoria RAM asignada a tu juego, una mayor cantidad aumentará el rendimiento de tu juego..<br> Tenga en cuenta que es necesario evitar poner demasiada cantidad, de lo contrario, puede causar una pérdida de rendimiento en otras aplicaciones.
-                    <br><br>
-                    <b>- RAM Máxima :</b>  Indica la cantidad total de RAM asignada a tu juego. Se recomienda que no excedas el 50% de la cantidad total de RAM presente en tu PC para que pueda funcionar correctamente.<br><br>
-                    <b>- RAM Mínima :</b> Indica la cantidad mínima de RAM asignada al iniciar tu juego, se recomienda no poner más de 3GB para este valor. El valor típico es de 1 GB.
-                </div>
-                <div class="ram-info">
-                    <div class="memory-slider" min="0.5" max="8" step="0.5">
-                        <div class="slider-touch-left">
-                            <span value="0 Go"></span>
-                        </div>
-                        <div class="slider-touch-right">
-                            <span value="0 Go"></span>
-                        </div>
-                        <div class="slider-line">
-                            <span></span>
-                        </div>
+                    <div class="texto">
+                       A mayor cantidad de RAM asignada el rendimiento de tu juego aumentará.<br> Ten en cuenta que debes evitar poner una cantidad demasiado grande, de lo contrario, podría causar pérdidas de rendimiento en tu otras aplicaciones.
+                        
                     </div>
-
+                </div>
+                    <div class="ram">
+                     <div class="ram-info">
+                        <div class="memory-slider" min="0.5" max="8" step="0.5">
+                            <div class="slider-touch-left"> 
+                                <span value="0 Go"></span>
+                            </div>
+                            <div class="slider-touch-right">
+                                <span value="0 Go"></span>
+                            </div>
+                            <div class="slider-line">
+                                <span></span>
+                            </div>
+                        </div>
+                       
+                    </div>
+                
                     <div class="ram-info-block">
-                        <b>Tienes un total de <span id="total-ram">0 Go</span> RAM.</b><br>
-                        <b>Tienes un total de <span id="free-ram">0 Go</span> RAM disponible.</b>
+                        <p>Total<br><span id="total-ram">0 G</span> </p><br>
+                        <p>Disponible <br><span id="free-ram">0 G</span></p>
                     </div>
+                    
+                  
+            </div>
+            <div class="information">
+                <div class="texto">
+                    El valor por defecto de RAM mínima es 1GB.
                 </div>
+            </div>
+              
+            
             </div>
         </div>
     </div>
 
     <div class="tabs-settings-content">
-        <div class="center-page">
-            <div class="title-settings">Configuración después de iniciar el juego.</div>
+        <div class="">
+            <div class="center-align">
+            <button disabled class="add-account">Launcher</button>
+        </div>
             <div class="java-settings">
-                <div class="information">
-                    <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Cierra el lanzador después de iniciar el juego.</br>
-                    <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Cierra el juego si el lanzador está cerrado.</br>
-                    <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Mantenga el lanzador abierto después de iniciar el juego.
+                <div class="informationlauncher">
+                    <input type="checkbox" class="checkbox-settings" id="launcher-close"><label for="launcher-close"><div class="checkround"></div></label> Cierra el launcher después de iniciar el juego.</br>
+                    <input type="checkbox" class="checkbox-settings" id="launcher-close-all"><label for="launcher-close-all"><div class="checkround"></div></label> Cierra el juego si el launcher está cerrado.</br>
+                    <input type="checkbox" class="checkbox-settings" id="launcher-open"><label for="launcher-open"><div class="checkround"></div></label> Mantén el launcher abierto después de iniciar el juego.
                 </div>
             </div>
         </div>

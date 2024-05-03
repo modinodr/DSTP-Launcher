@@ -27,21 +27,22 @@ class Settings {
             let uuid = e.target.id;
             let selectedaccount = await this.database.get('1234', 'accounts-selected');
 
-            if (e.path[0].classList.contains('account')) {
+            if (e.target.classList.contains('account')) {
+                console.log(uuid);
                 accountSelect(uuid);
                 this.database.update({ uuid: "1234", selected: uuid }, 'accounts-selected');
             }
 
             if (e.target.classList.contains("account-delete")) {
-                this.database.delete(e.path[1].id, 'accounts');
+                this.database.delete(e.target.parentElement.id, 'accounts');
 
-                document.querySelector('.accounts').removeChild(e.path[1])
+                document.querySelector('.accounts').removeChild(e.target.parentElement)
                 if (!document.querySelector('.accounts').children.length) {
                     changePanel("login");
                     return
                 }
 
-                if (e.path[1].id === selectedaccount.value.selected) {
+                if (uuid === selectedaccount.value.selected) {
                     let uuid = (await this.database.getAll('accounts'))[0].value.uuid
                     this.database.update({
                         uuid: "1234",
@@ -63,31 +64,31 @@ class Settings {
         let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
         let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
 
-        document.getElementById("total-ram").textContent = `${totalMem} Go`;
-        document.getElementById("free-ram").textContent = `${freeMem} Go`;
+        document.getElementById("total-ram").textContent = `${totalMem} G`;
+        document.getElementById("free-ram").textContent = `${freeMem} G`;
 
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
 
-        let ram = ramDatabase ? ramDatabase : { ramMin: "1", ramMax: "2" };
+        let ram = ramDatabase ? ramDatabase : { ramMin: "2", ramMax: "4" };
         let slider = new Slider(".memory-slider", parseFloat(ram.ramMin), parseFloat(ram.ramMax));
 
         let minSpan = document.querySelector(".slider-touch-left span");
         let maxSpan = document.querySelector(".slider-touch-right span");
 
-        minSpan.setAttribute("value", `${ram.ramMin} Go`);
-        maxSpan.setAttribute("value", `${ram.ramMax} Go`);
+        minSpan.setAttribute("value", `${ram.ramMin} G`);
+        maxSpan.setAttribute("value", `${ram.ramMax} G`);
 
         slider.on("change", (min, max) => {
-            minSpan.setAttribute("value", `${min} Go`);
-            maxSpan.setAttribute("value", `${max} Go`);
+            minSpan.setAttribute("value", `${min} G`);
+            maxSpan.setAttribute("value", `${max} G`);
             this.database.update({ uuid: "1234", ramMin: `${min}`, ramMax: `${max}` }, 'ram')
         });
     }
 
     async initJavaPath() {
         let javaDatabase = (await this.database.get('1234', 'java-path'))?.value?.path;
-        let javaPath = javaDatabase ? javaDatabase : 'Use la versión de Java del lanzador';
+        let javaPath = javaDatabase ? javaDatabase : 'Utiliser la version de java livre avec le launcher';
         document.querySelector(".info-path").textContent = `${dataDirectory.replace(/\\/g, "/")}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}/runtime`;
 
         let path = document.querySelector(".path");
@@ -259,7 +260,7 @@ class Settings {
         }
 
         if (!(await this.database.getAll('ram')).length) {
-            this.database.add({ uuid: "1234", ramMin: "1", ramMax: "2" }, 'ram')
+            this.database.add({ uuid: "1234", ramMin: "2", ramMax: "4" }, 'ram')
         }
 
         if (!(await this.database.getAll('screen')).length) {

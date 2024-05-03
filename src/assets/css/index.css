@@ -9,19 +9,18 @@ body {
     height: 100vh;
     overflow: hidden;
 }
-
 img {
     -webkit-user-drag: none;
     user-select: none;
+    border-radius: 20px;
 }
 
 .splash {
     position: absolute;
-    top: 40px;
+    top: 200px;
     left: 50%;
     transform: translate(-50%);
-    width: 250px;
-    height: 250px;
+    height: 70px;
     transition: opacity .3s, top 1.5s;
     opacity: 0;
 }
@@ -31,7 +30,7 @@ img {
 }
 
 .splash.translate {
-    top: 90px;
+    top: 150px;
 }
 
 .splash-message {
@@ -61,7 +60,6 @@ img {
     font: normal normal normal 9px/13px Poppins;
     color: rgb(255, 255, 255);
     opacity: 0;
-    display: none;
 }
 
 .splash-author .author {
@@ -74,7 +72,7 @@ img {
 
 .message {
     position: absolute;
-    top: 400px;
+    top: 347px;
     left: 0px;
     width: 400px;
     text-align: center;

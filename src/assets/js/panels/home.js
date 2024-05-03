@@ -7,6 +7,7 @@
 
 import { logger, database, changePanel } from '../utils.js';
 
+
 const { Launch, Status } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
 const launch = new Launch();
@@ -62,7 +63,7 @@ class Home {
                         <div class="news-content">
                             <div class="bbWrapper">
                                 <p>${News.content.replace(/\n/g, '</br>')}</p>
-                                <p class="news-author">Autor,<span> ${News.author}</span></p>
+                                <p class="news-author">Auteur,<span> ${News.author}</span></p>
                             </div>
                         </div>`
                     news.appendChild(blockNews);
@@ -85,6 +86,8 @@ class Home {
             // news.appendChild(blockNews);
         }
     }
+
+
 
     async initLaunch() {
         document.querySelector('.play-btn').addEventListener('click', async () => {
@@ -178,7 +181,7 @@ class Home {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-hide");
                 ipcRenderer.send('main-window-progress-reset')
                 progressBar.style.display = "none"
-                info.innerHTML = `Iniciando...`
+                info.innerHTML = `JUEGO EN CURSO`
                 console.log(e);
             })
 
@@ -186,8 +189,8 @@ class Home {
                 if (launcherSettings.launcher.close === 'close-launcher') ipcRenderer.send("main-window-show");
                 progressBar.style.display = "none"
                 info.style.display = "none"
-                playBtn.style.display = "block"
-                info.innerHTML = `Verificación`
+                playBtn.style.display = "inline"
+                info.innerHTML = `Verificando`
                 new logger('Launcher', '#7289da');
                 console.log('Close');
             });
@@ -207,12 +210,12 @@ class Home {
 
         if (!serverPing.error) {
             nameServer.textContent = this.config.status.nameServer;
-            serverMs.innerHTML = `<span class="green">En línea</span> - ${serverPing.ms}ms`;
+            serverMs.innerHTML = `JUGADORES`;
             online.classList.toggle("off");
             playersConnected.textContent = serverPing.playersConnect;
         } else if (serverPing.error) {
             nameServer.textContent = 'Servidor no disponible';
-            serverMs.innerHTML = `<span class="red">Fuera de línea</span>`;
+            serverMs.innerHTML = `JUGADORES`;
         }
     }
 
