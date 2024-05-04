@@ -32,14 +32,14 @@
 }
 
 .login-type-btn:disabled {
-    background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
+    background-color: #5a5a5a91;
+
     cursor: default;
 }
 
 .login-type-btn:disabled:hover {
-    background-color: #00bd7a;
-    box-shadow: 0 0 5px #00bd7a;
+    background-color: #5a5a5a91;
+  
 }
 
 .login-card-mojang {

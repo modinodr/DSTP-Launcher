@@ -109,7 +109,7 @@ function sleep(ms) {
 }
 
 document.addEventListener("keydown", (e) => {
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73 || e.keyCode == 123) {
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 999 || e.keyCode == 999) {
         ipcRenderer.send("update-window-dev-tools");
     }
 })
