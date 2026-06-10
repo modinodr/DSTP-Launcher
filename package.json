@@ -1,11 +1,13 @@
 {
     "name": "Distopia-Launcher",
     "preductname": "Distopia SMP Launcher",
-    "version": "1.0.17",
+    "version": "1.0.19",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
-    "url": "http://distopiasmp.ddns.net/",
+    "url": "https://apidistopia.modinodr.es/",
+    "server_token": "6905e8e69ff9d2333dc6eca001802fbbc09b473c634558f216133eb219943443",
+    "github_token": "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I",
     "engines": {
         "node": "^18.x.x"
     },
@@ -21,6 +23,7 @@
     },
     "dependencies": {
         "electron-updater": "^6.1.1",
+        "grep": "^0.1.0",
         "minecraft-java-core": "^3.6.2",
         "node-fetch": "^2.6.13"
     },

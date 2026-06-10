@@ -13,6 +13,7 @@ const { ipcRenderer } = require('electron');
 const launch = new Launch();
 const pkg = require('../package.json');
 
+
 const dataDirectory = process.env.APPDATA || (process.platform == 'darwin' ? `${process.env.HOME}/Library/Application Support` : process.env.HOME)
 
 class Home {
@@ -92,6 +93,7 @@ class Home {
     async initLaunch() {
         document.querySelector('.play-btn').addEventListener('click', async () => {
             let urlpkg = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url;
+            urlpkg = urlpkg.replace(/\/$/, ''); // ← añade esta línea
             let uuid = (await this.database.get('1234', 'accounts-selected')).value;
             let account = (await this.database.get(uuid.selected, 'accounts')).value;
             let ram = (await this.database.get('1234', 'ram')).value;
@@ -112,8 +114,7 @@ class Home {
             }
 
             let opts = {
-                url: this.config.game_url === "" || this.config.game_url === undefined ? `${urlpkg}/files` : this.config.game_url,
-                authenticator: account,
+                url: this.config.game_url === "" || this.config.game_url === undefined ? `${urlpkg}/files?token=${pkg.server_token}` : `${this.config.game_url}?token=${pkg.server_token}`,                authenticator: account,
                 timeout: 10000,
                 path: `${dataDirectory}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
                 version: this.config.game_version,
