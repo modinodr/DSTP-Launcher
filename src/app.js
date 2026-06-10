@@ -7,8 +7,12 @@ const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
 const pkg = require('../package.json');
-autoUpdater.requestHeaders = { 'PRIVATE-TOKEN': pkg.github_token };
-
+autoUpdater.setFeedURL({
+    provider: 'github',
+    owner: 'modinodr',
+    repo: 'DSTP-Launcher',
+    token: pkg.github_token
+});
 const path = require('path');
 const fs = require('fs');
 
