@@ -18,8 +18,10 @@ class Index {
                 compression: 'maximum',
                 asar: true,
                 publish: [{
-                    provider: "github",
+                   provider: "github",
                     releaseType: 'release',
+                    private: true,
+                    token: process.env.GH_TOKEN
                 }],
                 win: {
                     icon: "./src/assets/images/icon.ico",

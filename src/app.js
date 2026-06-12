@@ -66,8 +66,9 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
 
-
+autoUpdater.forceDevUpdateConfig = true;
 autoUpdater.autoDownload = false;
+
 
 ipcMain.handle('update-app', () => {
     return new Promise(async(resolve, reject) => {
