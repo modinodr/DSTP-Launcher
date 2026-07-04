@@ -60,6 +60,6 @@ function accountSelect(uuid) {
 }
 
 function headplayer(pseudo) {
-    document.querySelector(".player-head").style.backgroundImage = `url(https://minotar.net/cube/${pseudo}/100)`;
+    document.querySelector(".player-head").style.backgroundImage = `url(https://mc-heads.net/head/${pseudo}/100)`;
     document.getElementById("player-name").innerHTML = `${pseudo}`;
 }
