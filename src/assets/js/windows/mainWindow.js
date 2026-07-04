@@ -9,6 +9,7 @@ const path = require("path");
 const os = require("os");
 const pkg = require("../../../../package.json");
 let mainWindow = undefined;
+let dev = process.env.NODE_ENV === "dev";
 
 function getWindow() {
     return mainWindow;
@@ -41,7 +42,7 @@ function createWindow() {
     electron.Menu.setApplicationMenu(null);
     mainWindow.setMenuBarVisibility(false);
     mainWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'launcher.html'));
-    // mainWindow.webContents.openDevTools({ mode: 'detach' }); //
+    if (dev) mainWindow.webContents.openDevTools({ mode: 'detach' });
     mainWindow.once('ready-to-show', () => {
         if (mainWindow) {
             mainWindow.show();

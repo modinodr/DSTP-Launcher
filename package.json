@@ -1,16 +1,13 @@
 {
     "name": "Distopia-Launcher",
     "preductname": "Distopia SMP Launcher",
-    "version": "1.0.26",
+    "version": "1.0.27",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
     "url": "https://apidistopia.modinodr.es/",
     "server_token": "6905e8e69ff9d2333dc6eca001802fbbc09b473c634558f216133eb219943443",
     "github_token": "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",
-    "engines": {
-        "node": "^18.x.x"
-    },
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "build": "node build.js --build",
@@ -22,17 +19,15 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-        "electron-updater": "^6.1.1",
-        "grep": "^0.1.0",
-        "minecraft-java-core": "^3.6.2",
-        "node-fetch": "^2.6.13"
+        "electron-updater": "^6.8.9",
+        "minecraft-java-core": "^4.2.8"
     },
     "devDependencies": {
-        "cross-env": "^7.0.3",
-        "electron": "^26.0.0",
-        "electron-builder": "^24.6.3",
-        "jimp": "^0.22.10",
-        "nodemon": "^3.0.1",
+        "cross-env": "^10.1.0",
+        "electron": "^43.0.0",
+        "electron-builder": "^26.15.3",
+        "jimp": "^1.6.1",
+        "nodemon": "^3.1.14",
         "png2icons": "^2.0.1"
     },
     "repository": {
