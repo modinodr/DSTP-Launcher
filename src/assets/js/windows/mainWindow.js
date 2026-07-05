@@ -42,7 +42,7 @@ function createWindow() {
     electron.Menu.setApplicationMenu(null);
     mainWindow.setMenuBarVisibility(false);
     mainWindow.loadFile(path.join(electron.app.getAppPath(), 'src', 'launcher.html'));
-    if (dev) mainWindow.webContents.openDevTools({ mode: 'detach' });
+    //  mainWindow.webContents.openDevTools({ mode: 'detach' }); //
     mainWindow.once('ready-to-show', () => {
         if (mainWindow) {
             mainWindow.show();

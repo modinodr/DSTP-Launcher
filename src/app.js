@@ -6,13 +6,7 @@
 const { app, ipcMain } = require('electron');
 const { Microsoft } = require('minecraft-java-core');
 const { autoUpdater } = require('electron-updater')
-const pkg = require('../package.json');
-autoUpdater.setFeedURL({
-    provider: 'github',
-    owner: 'modinodr',
-    repo: 'DSTP-Launcher',
-    token: pkg.github_token
-});
+
 const path = require('path');
 const fs = require('fs');
 
@@ -66,9 +60,8 @@ app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit();
 });
 
-autoUpdater.forceDevUpdateConfig = true;
-autoUpdater.autoDownload = false;
 
+autoUpdater.autoDownload = false;
 
 ipcMain.handle('update-app', () => {
     return new Promise(async(resolve, reject) => {

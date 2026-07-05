@@ -1,5 +1,5 @@
 const builder = require('electron-builder')
-const nodeFetch = require('node-fetch')
+
 const fs = require("fs");
 const png2icons = require('png2icons');
 const Jimp = require('jimp');
@@ -18,10 +18,8 @@ class Index {
                 compression: 'maximum',
                 asar: true,
                 publish: [{
-                   provider: "github",
+                    provider: "github",
                     releaseType: 'release',
-                    private: true,
-                    token: process.env.GH_TOKEN
                 }],
                 win: {
                     icon: "./src/assets/images/icon.ico",

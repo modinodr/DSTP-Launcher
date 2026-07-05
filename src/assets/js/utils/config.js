@@ -4,13 +4,8 @@
  */
 
 const pkg = require('../package.json');
+
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
-
-// Quitar slash final si lo hay para evitar doble barra
-url = url.replace(/\/$/, '');
-
-const LAUNCHER_TOKEN = pkg.server_token;
-const authHeaders = { 'X-Launcher-Token': LAUNCHER_TOKEN };
 
 let config = `${url}/launcher/config-launcher/config.json`;
 let news = `${url}/launcher/news-launcher/news.json`;
@@ -18,8 +13,8 @@ let news = `${url}/launcher/news-launcher/news.json`;
 class Config {
     GetConfig() {
         return new Promise((resolve, reject) => {
-            fetch(config, { headers: authHeaders }).then(res => {
-                return resolve(res.json());
+            fetch(config).then(config => {
+                return resolve(config.json());
             }).catch(error => {
                 return reject(error);
             })
@@ -27,7 +22,7 @@ class Config {
     }
 
     async GetNews() {
-        let rss = await fetch(news, { headers: authHeaders });
+        let rss = await fetch(news);
         if (rss.status === 200) {
             try {
                 let news = await rss.json();
@@ -42,4 +37,3 @@ class Config {
 }
 
 export default new Config;
-export { authHeaders, LAUNCHER_TOKEN };
