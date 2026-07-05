@@ -1,7 +1,7 @@
 {
     "name": "Distopia-Launcher",
     "preductname": "Distopia SMP Launcher",
-    "version": "1.0.29",
+    "version": "1.0.30",
     "description": "Launcher Mincraft",
     "main": "src/app.js",
     "author": "EfectoDME",
@@ -20,13 +20,13 @@
         "ext": "js,html,css"
     },
     "dependencies": {
-         "electron-updater": "^6.8.9",
+        "electron-updater": "^6.8.9",
         "minecraft-java-core": "^4.2.8"
     },
     "devDependencies": {
-          "cross-env": "^10.1.0",
+        "cross-env": "^10.1.0",
         "electron": "^43.0.0",
-        "electron-builder": "^26.15.3",
+        "electron-builder": "^25.1.8",
         "jimp": "^1.6.1",
         "nodemon": "^3.1.14",
         "png2icons": "^2.0.1"
